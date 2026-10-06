@@ -1,0 +1,56 @@
+<div style="display: flex; justify-content: space-around; align-items: flex-start; padding: 30px; font-family: Arial, sans-serif;">
+  
+
+  <div style="width: 42%; border: 1px solid #ccc; padding: 20px;">
+    <h3 style="text-align: center; margin-top: 0;">Datos Personales</h3>
+    
+    <label>Nombre</label><br>
+    <input type="text" [(ngModel)]="nombre" style="width: 100%; margin-bottom: 10px;"><br>
+
+    <label>Apaterno</label><br>
+    <input type="text" [(ngModel)]="apaterno" style="width: 100%; margin-bottom: 10px;"><br>
+
+    <label>Amaterno</label><br>
+    <input type="text" [(ngModel)]="amaterno" style="width: 100%; margin-bottom: 15px;"><br>
+
+    <h4 style="margin-bottom: 5px;">Fecha de nacimiento</h4>
+    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+      <div>
+        <label style="font-size: 12px;">Día</label><br>
+        <input type="number" [(ngModel)]="dia" style="width: 50px;">
+      </div>
+      <div>
+        <label style="font-size: 12px;">Mes</label><br>
+        <input type="number" [(ngModel)]="mes" style="width: 50px;">
+      </div>
+      <div>
+        <label style="font-size: 12px;">Año</label><br>
+        <input type="number" [(ngModel)]="anio" style="width: 70px;">
+      </div>
+    </div>
+
+    <label>sexo</label><br>
+    <input type="radio" name="sexo" [(ngModel)]="sexo" value="Masculino"> Masculino<br>
+    <input type="radio" name="sexo" [(ngModel)]="sexo" value="Femenino"> Femenino<br><br>
+
+    <button (click)="imprimir()" style="border: 3px solid black; background-color: white; padding: 5px 20px; font-weight: bold; cursor: pointer;">imprimir</button>
+  </div>
+
+
+  <div style="width: 2px; background-color: black; height: 380px; margin: 0 10px;"></div>
+
+
+  <div style="width: 45%; text-align: center; padding-top: 20px;" *ngIf="mostrar">
+    <h2>Hola <i>{{ nombre }} {{ apaterno }} {{ amaterno }}</i></h2>
+    <h3>Tienes <strong>{{ edad }}</strong> años</h3>
+    <p>tu signo zodiacal</p>
+    
+
+    <div style="width: 110px; height: 110px; background-color: #2b388f; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 20px auto;">
+      <img [src]="imagen" alt="Signo zodiacal" style="width: 65px; height: 65px; object-fit: contain; filter: brightness(0) invert(1);">
+    </div>
+    
+    <h3>Es {{ signo }}</h3>
+  </div>
+
+</div>

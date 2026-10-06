@@ -1,18 +1,15 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { OnInit } from '@angular/core';
-import { initFlowbite } from 'flowbite';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+// Aquí corregimos la ruta exacta hacia tu carpeta 'formulario\zodiago'
+import { Zodiago } from './formulario/zodiago/zodiago';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
+  standalone: true,
+  imports: [CommonModule, Zodiago],
   templateUrl: './app.html',
+  styleUrls: ['./app.css']
 })
-export class App implements OnInit {
- title = 'web-app';
-
-  ngOnInit(): void {
-    initFlowbite();
-  }
+export class App {
+  title = 'segundoparcialAngular';
 }
