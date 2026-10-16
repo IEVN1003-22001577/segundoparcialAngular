@@ -28,7 +28,7 @@ export const routes: Routes = [
                 path:'listaescuela',
                 loadComponent:() =>
                     import('./escuela/listaescuela/listaescuela').then(
-                        (c)=>c.Listaescuela
+                        (c)=>c.Listaescuela // Corregido con minúscula
                     ),
             },
             {
@@ -36,6 +36,13 @@ export const routes: Routes = [
                 loadComponent:() =>
                     import('./escuela/cinepolis/cinepolis').then(
                         (c)=>c.Cinepolis
+                    ),
+            },
+            {
+                path:'ventas',
+                loadComponent:() =>
+                    import('./ventas/ventas').then( // Ajusta './ventas/ventas' si está en la raíz de app, o './escuela/ventas/ventas' si está dentro de escuela
+                        (c)=>c.Ventas
                     ),
             }
         ]

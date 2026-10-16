@@ -1,0 +1,70 @@
+<div class="max-w-6xl mx-auto mt-16 mb-12 p-4">
+  
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-3xl font-bold text-gray-900">
+      Tabla de Ventas Registradas
+    </h2>
+
+    <!-- Botón para regresar al formulario de Cinépolis -->
+    <a 
+      routerLink="/escuela/cinepolis"
+      class="bg-blue-900 text-white font-medium rounded text-xs px-4 py-2 shadow hover:bg-blue-800"
+    >
+      Volver a Cinépolis
+    </a>
+  </div>
+
+  <!-- Contenedor de la Tabla -->
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500">
+      
+      <!-- Encabezados -->
+      <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+        <tr>
+          <th scope="col" class="px-6 py-3">Nombre</th>
+          <th scope="col" class="px-6 py-3">Compradores</th>
+          <th scope="col" class="px-6 py-3">Tarjeta Cineco</th>
+          <th scope="col" class="px-6 py-3">Boletas</th>
+          <th scope="col" class="px-6 py-3">Valor a Pagar</th>
+          <th scope="col" class="px-6 py-3">Acciones</th>
+        </tr>
+      </thead>
+
+      <!-- Datos guardados en LocalStorage -->
+      <tbody>
+        <tr *ngFor="let venta of ventas; let i = index" class="bg-white border-b border-gray-200 hover:bg-gray-50">
+          <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{{ venta.nombre }}</td>
+          <td class="px-6 py-4">{{ venta.cantidadCompradores }}</td>
+          <td class="px-6 py-4 uppercase">{{ venta.tarjetaCineco }}</td>
+          <td class="px-6 py-4">{{ venta.cantidadBoletas }}</td>
+          <td class="px-6 py-4 font-bold text-gray-900">${{ venta.valorAPagar.toLocaleString() }}</td>
+          <td class="px-6 py-4">
+            <div class="flex gap-2">
+              <button 
+                type="button" 
+                class="px-4 py-2 text-xs font-medium text-white bg-green-600 rounded-lg hover:bg-green-700"
+                (click)="editarVenta(i)"
+              >
+                Editar
+              </button>
+              <button 
+                type="button" 
+                class="px-4 py-2 text-xs font-medium text-white bg-red-600 rounded-lg hover:bg-red-700"
+                (click)="eliminarVenta(i)"
+              >
+                Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <!-- Mensaje si no hay registros -->
+  <div *ngIf="ventas.length === 0" class="p-4 mt-4 text-sm text-gray-800 rounded-lg bg-gray-100" role="alert">
+    <span class="font-medium">Información:</span> No hay ventas registradas.
+  </div>
+
+</div>
